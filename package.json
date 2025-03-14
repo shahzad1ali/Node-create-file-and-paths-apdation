@@ -2,11 +2,22 @@
   "name": "open-editor",
   "version": "1.0.0",
   "description": "",
+  "homepage": "https://github.com/shahzad1ali/Node-create-file-and-paths-apdation#readme",
+  "bugs": {
+    "url": "https://github.com/shahzad1ali/Node-create-file-and-paths-apdation/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shahzad1ali/Node-create-file-and-paths-apdation.git"
+  },
   "license": "ISC",
   "author": "",
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
   }
 }

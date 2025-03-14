@@ -1,26 +1,27 @@
-const fs = require('fs');
-const path = require('path');
-const dirpath = path.join(__dirname,'curd');
-const filepath = `${dirpath}/apple.text`;
+const express = require('express');
+const app = express();
 
-// Create File 
-// fs.writeFileSync(filepath,'this is a simple text file');
+app.get('',(req,res)=>{    
+    res.send('<h1>Welcome, to Home Page</h1><a href="/about" >Go to about page</a> ');
+});
+app.get('/about',(req,res)=>{
+    res.send(`
+        <input type="text" placholder="Enter user"  />
+        <button>Click Me</button>
+        <a href="/" >Go to Home page</a>
+        `)
+});
+app.get('/help',(req,res)=>{
+    res.send([
+        {
+            name:'Shahzad',
+            email:"shahzad@hd"
+        },
+        {
+            name:'Anas',
+            email:"seszad@hd"
+        },
+    ]);
+});
 
-//file path
-// fs.readFile(filepath,'utf8',(err,item)=>{
-//     console.log(item);
-    
-// })
-// Files Updted 
-//  fs.appendFile(filepath,'and file name is apple.text',(err)=>{
-//     if (!err) console.log("file is updated")
-//  })
-
-// Delete files and create new file in this space
-
-// fs.rename(filepath,`${dirpath}/fruit.text`,(err)=>{
-//     if(!err) console.log("file name updated");
-    
-// })
-
-fs.unlinkSync(`${dirpath}/fruit.text`)
+app.listen(4500);
