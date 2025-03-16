@@ -1,27 +1,16 @@
-const express = require('express');
-const app = express();
+const { name } = require('ejs');
+const dbConnect= require('./mongodb');
 
-app.get('',(req,res)=>{    
-    res.send('<h1>Welcome, to Home Page</h1><a href="/about" >Go to about page</a> ');
-});
-app.get('/about',(req,res)=>{
-    res.send(`
-        <input type="text" placholder="Enter user"  />
-        <button>Click Me</button>
-        <a href="/" >Go to Home page</a>
-        `)
-});
-app.get('/help',(req,res)=>{
-    res.send([
-        {
-            name:'Shahzad',
-            email:"shahzad@hd"
-        },
-        {
-            name:'Anas',
-            email:"seszad@hd"
-        },
-    ]);
-});
+dbConnect().then((resp)=>{
+    resp.find({name:'nord'}).toArray().then((data)=>{
+        console.warn(data)
+    })
+})
+const main=async ()=>{
+let data = await dbConnect();
+data = await data.find({name:'nord'}).toArray();
+console.log(data)
+}
 
-app.listen(4500);
+
+main();
